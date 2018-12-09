@@ -2,7 +2,7 @@
 #
 .DS_Store
 
-Config.js
+src/config/Config.js
 backup/
 
 # Xcode

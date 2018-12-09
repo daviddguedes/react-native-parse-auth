@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert } from 'react-native';
 import Parse from 'parse/react-native';
-import { UserConsumer } from './UserProvider';
+import { UserConsumer } from '../providers/UserProvider';
 import { Container, Text } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
