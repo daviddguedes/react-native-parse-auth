@@ -3,6 +3,7 @@ import Parse from 'parse/react-native';
 import { UserConsumer } from '../providers/UserProvider';
 import { Container, Text } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import Loading from '../common/Loading';
 
 class HomeScreen extends Component {
 
@@ -26,6 +27,7 @@ class HomeScreen extends Component {
       return (
          <UserConsumer>
             {({ state, actions }) => (
+               state.loading ? <Loading /> :
                <Container>
                   <Grid>
                      <Col>

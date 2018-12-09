@@ -8,6 +8,7 @@ export const UserConsumer = Consumer;
 export class UserProvider extends Component {
    state = {
       user: null,
+      loading: false,
    };
 
    componentDidMount() {
@@ -24,20 +25,28 @@ export class UserProvider extends Component {
    }
 
    login = async () => {
+      this.setState({ loading: true });
       try {
          const user = await Parse.User.logIn("daviddguedes", "lalala");
-         this.setState({ user: user.toJSON() });
+         this.setState({ user: user.toJSON(), loading: false });
       } catch (error) {
+         this.setState({ loading: false });
          Alert.alert(error.message);
+      } finally {
+         this.setState({ loading: false });
       }
    };
 
    logout = async () => {
+      this.setState({ loading: true });
       try {
          const out = await Parse.User.logOut();
-         this.setState({ user: null });
+         this.setState({ user: null, loading: false });
       } catch (error) {
+         this.setState({ loading: false });
          Alert.alert(error.message);
+      } finally {
+         this.setState({ loading: false });
       }
    };
 
